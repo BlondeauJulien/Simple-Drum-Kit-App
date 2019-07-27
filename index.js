@@ -8,12 +8,14 @@ for (let i = 0; i < drumButtons.length; i++) {
 
 function drumButtonClicked() {
 	drumSound(this.innerText);
+	buttonAnimation(this.innerText)
 }
 
 
 
 function keysDrumPressed(e) {
 	drumSound(e.key);
+	buttonAnimation(e.key)
 }
 
 function drumSound(key) {
@@ -47,4 +49,15 @@ function drumSound(key) {
 			kickBass.play();
 			break;
 	}
+}
+
+function buttonAnimation(key) {
+
+	let activeButton = document.querySelector("." + key);
+  
+	activeButton.classList.add("pressed");
+  
+	setTimeout(function() {
+	  activeButton.classList.remove("pressed");
+	}, 100);
 }
