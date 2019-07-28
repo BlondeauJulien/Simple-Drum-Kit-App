@@ -1,17 +1,11 @@
-let drumButtons = document.querySelectorAll('.drum');
+$(document).keydown(keysDrumPressed)
 
-document.addEventListener('keydown', keysDrumPressed);
-
-for (let i = 0; i < drumButtons.length; i++) {
-	drumButtons[i].addEventListener('click', drumButtonClicked);
-}
+$(".drum").click(drumButtonClicked)
 
 function drumButtonClicked() {
 	drumSound(this.innerText);
 	buttonAnimation(this.innerText)
 }
-
-
 
 function keysDrumPressed(e) {
 	drumSound(e.key);
@@ -53,11 +47,14 @@ function drumSound(key) {
 
 function buttonAnimation(key) {
 
-	let activeButton = document.querySelector("." + key);
+	//let activeButton = document.querySelector("." + key);
+
+	$("."+key).addClass("pressed");
   
-	activeButton.classList.add("pressed");
+	//activeButton.classList.add("pressed");
   
 	setTimeout(function() {
-	  activeButton.classList.remove("pressed");
+		$("."+key).removeClass("pressed");
+	  //activeButton.classList.remove("pressed");
 	}, 100);
 }
