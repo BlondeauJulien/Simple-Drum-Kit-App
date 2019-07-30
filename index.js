@@ -46,15 +46,9 @@ function drumSound(key) {
 }
 
 function buttonAnimation(key) {
-
-	//let activeButton = document.querySelector("." + key);
-
 	$("."+key).addClass("pressed");
-  
-	//activeButton.classList.add("pressed");
   
 	setTimeout(function() {
 		$("."+key).removeClass("pressed");
-	  //activeButton.classList.remove("pressed");
 	}, 100);
 }
